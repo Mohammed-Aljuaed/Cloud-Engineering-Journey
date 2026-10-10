@@ -1,0 +1,48 @@
+# Multi-Region Cloud Architecture & VPC Peering/Routing in GCP
+
+This repository documents a cross-region cloud infrastructure deployment on Google Cloud Platform (GCP). The project demonstrates setting up a custom VPC network with multiple subnets across different geographical regions, configuring strict firewall rules, provisioning virtual machine instances, and verifying internal cross-region network connectivity.
+
+---
+
+## 🏗️ Architecture Overview
+
+* **Custom VPC Network:** A dedicated virtual private cloud isolating the resources.
+* **Subnets:** 
+  * `subnet-1`: Located in `us-central1` (CIDR: `10.0.1.0/24`)[cite: 7]
+  * `subnet-2`: Located in `europe-central2` (CIDR: `10.0.2.2/24` or similar custom range)[cite: 7, 9]
+* **Compute Instances:** Two Linux-based Debian virtual machines (`vm-1` and `vm-2`) deployed across the distinct regions[cite: 9, 10].
+* **Security/Firewall:** Tailored firewall rules allowing internal communication (ICMP/Ping) and secure remote management (SSH)[cite: 8].
+
+---
+
+## 📸 Implementation & Deployment Steps
+
+Below is the step-by-step documentation captured during the configuration and testing phase:
+
+### 1. Custom VPC & Subnets Setup
+A custom VPC network was created containing two regional subnets to segment the traffic across geographical boundaries.
+>
+
+### 2. Firewall Rules Configuration
+Firewall rules were configured to permit ICMP traffic for network reachability tests (Ping) and secure SSH access.
+>
+
+### 3. VM Instances Provisioning
+Two virtual machines (`vm-1` and `vm-2`) were successfully deployed and bound to their respective regional subnets and internal IPs (`10.0.1.2` and `10.0.2.2`).
+> 
+
+### 4. Connectivity Verification (Ping Test)
+Internal network validation was performed by executing a `ping` command from `vm-1` to `vm-2`'s internal IP address, resulting in successful packet transmission with **0% packet loss**.
+> 
+
+---
+
+## 🚀 How to Reproduce
+1. Create a custom VPC network via the GCP Console or Terraform.
+2. Add two regional subnets with non-overlapping IP address ranges.
+3. Configure ingress firewall rules allowing ICMP and TCP port 22 (SSH).
+4. Deploy VM instances in their respective subnets.
+5. Verify communication via SSH and internal IP pinging.
+
+---
+*Project documented and tested successfully on Google Cloud Platform.*

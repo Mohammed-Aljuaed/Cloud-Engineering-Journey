@@ -21,20 +21,19 @@ Below is the step-by-step documentation captured during the configuration and te
 
 ### 1. Custom VPC & Subnets Setup
 A custom VPC network was created containing two regional subnets to segment the traffic across geographical boundaries.
->
+![VPC Network & Subnets Details](./subnet.png)
 
 ### 2. Firewall Rules Configuration
 Firewall rules were configured to permit ICMP traffic for network reachability tests (Ping) and secure SSH access.
->
+![Firewall Rules List](./Firewall%20.png)
 
 ### 3. VM Instances Provisioning
 Two virtual machines (`vm-1` and `vm-2`) were successfully deployed and bound to their respective regional subnets and internal IPs (`10.0.1.2` and `10.0.2.2`).
-> 
+![VM Instances Dashboard](./servers.png)
 
 ### 4. Connectivity Verification (Ping Test)
-Internal network validation was performed by executing a `ping` command from `vm-1` to `vm-2`'s internal IP address, resulting in successful packet transmission with **0% packet loss**.
-> 
-
+Internal network validation was performed by executing a `ping` command from `vm-1` to `vm-2`'s internal IP address, resulting in successful packet transmission.
+![Ping Test Success Terminal Output](./test.png)
 ---
 
 ## 🚀 How to Reproduce

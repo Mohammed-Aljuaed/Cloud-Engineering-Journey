@@ -21,7 +21,7 @@ Below is the step-by-step documentation captured during the configuration and te
 
 ### 1. Custom VPC & Subnets Setup
 A custom VPC network was created containing two regional subnets to segment the traffic across geographical boundaries.
-> *[Insert Screenshot 1: VPC Network & Subnets Details]*
+> 
 
 ### 2. Firewall Rules Configuration
 Firewall rules were configured to permit ICMP traffic for network reachability tests (Ping) and secure SSH access.
